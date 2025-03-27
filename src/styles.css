@@ -1,0 +1,177 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Dark Theme Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* White text */
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Background Gallery */
+.background-gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place behind content */
+    overflow: hidden;
+}
+
+.background-gallery .scroll-container {
+    display: flex;
+    flex-wrap: nowrap;
+    animation: scroll-horizontal 20s linear infinite; /* Smooth horizontal scrolling */
+}
+
+.background-gallery img {
+    flex-shrink: 0;
+    width: 100vw; /* Each image takes the full width of the viewport */
+    height: 100vh; /* Each image takes the full height of the viewport */
+    object-fit: cover; /* Ensure all images are the same size */
+}
+
+/* Container Layout */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    overflow: hidden; /* Prevent scrolling */
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* White text */
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #f5f5f5; /* Slightly off-white for contrast */
+}
+
+a {
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #bb86fc; /* Soft purple for links */
+    background-color: #121212;
+    padding: 10px 20px;
+    border: 2px solid #bb86fc;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+a i {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+a:hover {
+    background-color: #bb86fc;
+    color: #121212; /* Dark text on hover */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 20%; /* Sidebar takes 20% of the width */
+    height: 100%; /* Full height */
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.sidebar .scroll-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: scroll-vertical 10s linear infinite;
+}
+
+.sidebar img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.sidebar img:hover {
+    transform: scale(1.1);
+}
+
+/* Main Content Styling */
+.main-content {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Scrolling Animation */
+@keyframes scroll-vertical {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes scroll-horizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Content Styling */
+.content {
+    position: relative;
+    z-index: 1; /* Place above the background */
+    text-align: center;
+    color: #ffffff;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 20%; /* Sidebar takes 20% of the height on mobile */
+    }
+
+    .main-content {
+        flex: none;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    a {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
